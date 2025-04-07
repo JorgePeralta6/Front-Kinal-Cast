@@ -7,7 +7,7 @@ export const Input = ({
     type,
     showErrorMessage,
     validationMessage,
-    onBluerHandler,
+    onBlurHandler,
     textArea
 }) => {
 
@@ -16,7 +16,7 @@ export const Input = ({
     }
 
     const handleInputBlur = (event) => {
-        onBluerHandler(event.target.value, field);
+        onBlurHandler(event.target.value, field);
     }
     
   return (
