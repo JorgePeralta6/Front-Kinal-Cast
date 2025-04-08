@@ -1,39 +1,37 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { login as loginRequest} from "../../services"
+import { register as registerRequest } from "../../services";
 import toast from "react-hot-toast";
 
-export const useLogin = () => {
+export const useRegister = () => {
 
     const [isLoading, setIsLoading] = useState(false);
 
-    const navigate = useNavigate()
+    const navigate = useNavigate();
 
-    const login = async (email, password) => {
+    const register = async (email, password, username) => {
         
         setIsLoading(true)
 
-        const response = await loginRequest({
-            email,
-            password
-        })
+        const response = await registerRequest({email, password, username})
 
         setIsLoading(false)
 
         if (response.error) {
-            return toast.error(response.error?.response?.data || 'Ocurrio un error al iniciar sesion, intenta de nuevo')
+            return toast.error(response.error?.response?.data || 'Ocurrio un error al registrar, intenta de nuevo')
         }
 
         const { userDetails } = response.data
 
         localStorage.setItem('user', JSON.stringify(userDetails));
 
-        toast.success('Sesion iniciada correctamente')
+        toast.success('Usuario registrado correctamente');
 
         navigate('/')
     }
+
     return {
-        login,
+        register,
         isLoading
     }
 }
