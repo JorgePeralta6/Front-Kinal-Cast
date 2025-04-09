@@ -1,8 +1,8 @@
 import { useEffect } from "react"
 import { Navbar } from "../../components/navbars/Navbar"
 import { LoadingSpinner } from "../../components/LoadingSpinner"
-import { Content } from "../../components/dasboard/Content"
-import { Sidebar } from "../../components/dasboard/Sidebar"
+import { Content } from "../../components/dashboard/Content"
+import { Sidebar } from "../../components/dashboard/Sidebar"
 import { useChannels } from "../../shared/hooks/useChannels"
 import { useUserDetails } from "../../shared/hooks"
 
