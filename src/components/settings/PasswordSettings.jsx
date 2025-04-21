@@ -65,7 +65,7 @@ export const PasswordSettings = () => {
         || !formState.newPassword.isValid
 
     const handleFormSumbit = (event) => {
-        event.preventDefualt();
+        event.preventDefault();
         changePassword(formState.password.value, formState.newPassword.value)
     }
 
